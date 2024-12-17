@@ -377,7 +377,7 @@ type ItemSpirit {
 }
 
 type ItemToggleable {
-  BaseItemTypes: baseitemtypes
+  BaseItem: baseitemtypes
   _: string
 }
 
@@ -691,7 +691,7 @@ type AttributeRequirements {
 }
 
 type BeltTypes {
-  BaseItemType: BaseItemTypes
+  BaseItem: BaseItemTypes
   CharmSlots: i32
 }
 
@@ -1145,7 +1145,7 @@ type Stats @tags(list: ["crafting"]) {
   IsScalable: bool
   ContextFlags: [VirtualStatContextFlags]
   _: [rid]
-  _: bool
+  Disabled: bool
 }
 
 type UtilityFlaskBuffs {
