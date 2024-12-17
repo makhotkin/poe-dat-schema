@@ -93,7 +93,7 @@ type AtlasPassiveSkillSubTrees {
   _: rid
 }
 
-type ballisticbounceoverride {
+type BallisticBounceOverride {
   _: string
   _: f32
   _: f32
@@ -680,7 +680,7 @@ type Ascendancy {
   _: i32
   _: i32
   _: i32
-  _: bool
+  Disabled: bool
 }
 
 type AttributeRequirements {
@@ -688,6 +688,44 @@ type AttributeRequirements {
   ReqStr: i32
   ReqInt: i32
   ReqDex: i32
+}
+
+type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
+  Id: string @unique
+  ItemClassesKey: ItemClasses
+  Width: i32
+  Height: i32
+  Name: string @localized
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
+  DropLevel: i32
+  FlavourTextKey: FlavourText
+  Implicit_ModsKeys: [Mods]
+  SizeOnGround: i32
+  SoundEffect: SoundEffects
+  TagsKeys: [Tags]
+  ModDomain: ModDomains
+  SiteVisibility: i32
+  ItemVisualIdentity: ItemVisualIdentity
+  HASH32: i32 @unique
+  VendorRecipe_AchievementItems: [AchievementItems]
+  "the inflection identifier used for i18n in related fields"
+  Inflection: string
+  Equip_AchievementItemsKey: AchievementItems
+  IsCorrupted: bool
+  Identify_AchievementItems: [AchievementItems]
+  IdentifyMagic_AchievementItems: [AchievementItems]
+  "the item which represents this item in the fragment stash tab"
+  FragmentBaseItemTypesKey: BaseItemTypes
+  _: bool
+  _: rid
+  _: rid
+  _: bool
+  TradeMarketCategory: TradeMarketCategory
+  Unmodifiable: bool
+  Achievement: [AchievementItems]
+  _: [string]
+  IgnoreQuantBonus: bool
+  _: bool
 }
 
 type BeltTypes {
@@ -1145,7 +1183,7 @@ type Stats @tags(list: ["crafting"]) {
   IsScalable: bool
   ContextFlags: [VirtualStatContextFlags]
   _: [rid]
-  Disabled: bool
+  _: bool
 }
 
 type UtilityFlaskBuffs {
